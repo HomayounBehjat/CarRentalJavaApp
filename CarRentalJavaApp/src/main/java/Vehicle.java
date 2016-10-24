@@ -1,5 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Homayoun on 18/10/2016.
+ *
+ * Vehicle.java.
+ *
+ * The superclass of all Vehicls.
  */
 public abstract class Vehicle {
 
@@ -59,4 +66,8 @@ public abstract class Vehicle {
     private int numberOfSeats;
     private boolean isDiezel;
     private boolean hasAirConditioning;
+    private String registrationNumber;
+    private Model model;
+    private List<Customer> hiringCustomers = new ArrayList<>();
+    private List<RentalInfo> rentalInfo = new ArrayList<>();
 }

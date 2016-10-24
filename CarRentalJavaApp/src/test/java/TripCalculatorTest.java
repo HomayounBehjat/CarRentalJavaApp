@@ -2,16 +2,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.is;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 /**
  * Created by Homayoun on 18/10/2016.
+ *
+ * TripCalculatorTest.java.
+ *
+ * A JUnit test class for testing Rental App APIs.
+ *
  */
 public class TripCalculatorTest {
 
@@ -30,49 +33,49 @@ public class TripCalculatorTest {
     public void testCalculateTripCarDiezelPassengerOverNoAC() throws Exception {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Pune",200),new Location("Pune","Bangalore",1000));
         Car car = new Car(6,5,true,false);
-        assertThat(expectedTripCost1,is(tripCalculator.calculateTrip(car,locationList,6)));
+        assertThat(expectedTripCost1,is(tripCalculator.calculateTripCost(car,locationList,6)));
     }
 
     @Test
     public void testCalculateTripCarDiezelMaxSeatNoAC() throws Exception {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Pune",200),new Location("Pune","Bangalore",1000));
         Car car = new Car(5,5,true,false);
-        assertThat(expectedTripCost2,is(tripCalculator.calculateTrip(car,locationList,5)));
+        assertThat(expectedTripCost2,is(tripCalculator.calculateTripCost(car,locationList,5)));
     }
 
     @Test
     public void testCalculateTripCarDiezelMaxSeatWithAC() throws Exception {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Pune",200),new Location("Pune","Bangalore",1000));
         Car car = new Car(6,5,true,true);
-        assertThat(expectedTripCost3,is(tripCalculator.calculateTrip(car,locationList,5)));
+        assertThat(expectedTripCost3,is(tripCalculator.calculateTripCost(car,locationList,5)));
     }
 
     @Test
     public void testCalculateTripCarPetrolMaxSeatNoAC() throws Exception {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Pune",200),new Location("Pune","Bangalore",1000));
         Car car = new Car(6,5,false,false);
-        assertThat(expectedTripCost1,is(tripCalculator.calculateTrip(car,locationList,5)));
+        assertThat(expectedTripCost1,is(tripCalculator.calculateTripCost(car,locationList,5)));
     }
 
     @Test
     public void testCalculateTripCarPetrolMaxSeatWithAC() throws Exception {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Pune",200),new Location("Pune","Bangalore",1000));
         Car car = new Car(6,5,false,true);
-        assertThat(expectedTripCost4,is(tripCalculator.calculateTrip(car,locationList,5)));
+        assertThat(expectedTripCost4,is(tripCalculator.calculateTripCost(car,locationList,5)));
     }
 
     @Test
     public void testCalculateTripBusDiezelNOAC() {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Delhi",2050),new Location("Mumbai","Chennai",1234.5));
         Bus bus = new Bus(55,40,true,false);
-        assertThat(expectedTripCost5,is(tripCalculator.calculateTrip(bus,locationList,16)));
+        assertThat(expectedTripCost5,is(tripCalculator.calculateTripCost(bus,locationList,16)));
     }
 
     @Test
     public void testCalculateTripBusDiezelWithAC() {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Delhi",2050),new Location("Mumbai","Chennai",1234.5));
         Bus bus = new Bus(53,40,true,true);
-        assertThat(expectedTripCost6,is(tripCalculator.calculateTrip(bus,locationList,22)));
+        assertThat(expectedTripCost6,is(tripCalculator.calculateTripCost(bus,locationList,22)));
     }
 
     @Test
@@ -80,14 +83,14 @@ public class TripCalculatorTest {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Delhi",2050),new Location("Mumbai","Chennai",1234.5));
         Bus bus = new Bus(35,30,false,false);
         //Here
-        assertThat(expectedTripCost8,is(tripCalculator.calculateTrip(bus,locationList,22)));
+        assertThat(expectedTripCost8,is(tripCalculator.calculateTripCost(bus,locationList,22)));
     }
 
     @Test
     public void testCalculateTripBusStandardWithAC() {
         List<Location> locationList = Arrays.asList(new Location("Mumbai","Delhi",2050),new Location("Mumbai","Chennai",1234.5));
         Bus bus = new Bus(40,30,false,true);
-        assertThat(expectedTripCost7,is(tripCalculator.calculateTrip(bus,locationList,36)));
+        assertThat(expectedTripCost7,is(tripCalculator.calculateTripCost(bus,locationList,36)));
     }
 
     @After

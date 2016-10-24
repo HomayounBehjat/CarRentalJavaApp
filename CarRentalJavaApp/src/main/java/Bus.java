@@ -3,7 +3,7 @@
  *
  * A type of Bus that runs on Petrol only.
  */
-public class Bus extends LGV implements PetrolVehicle {
+public class Bus extends LGV {
 
     public Bus(int maxNumOfPassengersAllowed, int numberOfSeats, boolean isDiezel,boolean hasAirConditioning) {
         super(maxNumOfPassengersAllowed,numberOfSeats,isDiezel,hasAirConditioning);
